@@ -1,0 +1,6 @@
+{
+  "name": "শান্তি হোমিও কেয়ার - Shanti Homeo Care",
+  "description": "AI-Powered Homeopathic Case Taking & Patient Management System for Shanti Homeo Care (শান্তি হোমিও কেয়ার, ঢাকা)",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
