@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, FileText, CheckCircle2, Clock, Phone, MapPin, AlertCircle, ArrowRight } from 'lucide-react';
+import { Search, FileText, CheckCircle2, Clock, Phone, MapPin, AlertCircle, ArrowRight, Printer } from 'lucide-react';
 import { PatientCase } from '../types/case';
 import { CaseStorage } from '../services/storage';
 import { CLINIC_CONFIG } from '../constants/case-form-data';
@@ -7,11 +7,13 @@ import { CLINIC_CONFIG } from '../constants/case-form-data';
 interface CaseStatusLookupProps {
   onSelectCaseToView: (caseItem: PatientCase) => void;
   onNavigateToForm: () => void;
+  onOpenPrintView?: (caseItem: PatientCase) => void;
 }
 
 export const CaseStatusLookup: React.FC<CaseStatusLookupProps> = ({
   onSelectCaseToView,
   onNavigateToForm,
+  onOpenPrintView,
 }) => {
   const [query, setQuery] = useState('');
   const [searched, setSearched] = useState(false);
@@ -125,12 +127,21 @@ export const CaseStatusLookup: React.FC<CaseStatusLookupProps> = ({
                   <FileText className="w-4 h-4" />
                   <span>সম্পূর্ণ কেস ফাইল দেখুন</span>
                 </button>
+                {onOpenPrintView && (
+                  <button
+                    onClick={() => onOpenPrintView(result)}
+                    className="flex items-center justify-center gap-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-300 font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm transition-colors cursor-pointer"
+                  >
+                    <Printer className="w-4 h-4 text-emerald-700" />
+                    <span>প্রিন্ট / PDF</span>
+                  </button>
+                )}
                 <a
                   href={`tel:${CLINIC_CONFIG.phoneRaw}`}
                   className="flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-2.5 px-4 rounded-xl text-xs sm:text-sm transition-colors"
                 >
                   <Phone className="w-3.5 h-3.5" />
-                  <span>চেম্বারে কল করুন</span>
+                  <span>চেম্বারে কল</span>
                 </a>
               </div>
             </div>

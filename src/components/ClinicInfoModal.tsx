@@ -29,6 +29,24 @@ export const ClinicInfoModal: React.FC<ClinicInfoModalProps> = ({ isOpen, onClos
 
         {/* Content */}
         <div className="p-6 space-y-5 text-slate-700 text-sm max-h-[80vh] overflow-y-auto">
+          {/* Doctor Profile Card */}
+          <div className="bg-gradient-to-br from-teal-900 to-emerald-950 text-white p-4 sm:p-5 rounded-2xl shadow-md space-y-2 border border-teal-800">
+            <div className="flex items-start gap-3">
+              <div className="w-12 h-12 rounded-xl bg-teal-800 border border-teal-600 flex items-center justify-center text-white text-xl font-bold font-serif shrink-0 shadow-inner">
+                ব
+              </div>
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-teal-300 block">
+                  {CLINIC_CONFIG.doctorRole}
+                </span>
+                <h4 className="text-lg font-black text-white">{CLINIC_CONFIG.doctorNameBangla}</h4>
+                <p className="text-xs text-teal-200 font-bold">{CLINIC_CONFIG.doctorNameEnglish}</p>
+                <p className="text-xs text-slate-300 mt-1 font-medium">{CLINIC_CONFIG.doctorDesignationBangla}</p>
+                <p className="text-[11px] text-teal-200/80 italic">{CLINIC_CONFIG.doctorDesignationEnglish}</p>
+              </div>
+            </div>
+          </div>
+
           {/* Chamber Details */}
           <div className="space-y-3 bg-[#FAF7F0] p-4 rounded-xl border border-amber-900/10">
             <div className="flex items-start gap-3">

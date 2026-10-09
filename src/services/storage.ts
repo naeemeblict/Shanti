@@ -119,7 +119,7 @@ export const INITIAL_SAMPLE_CASES: PatientCase[] = [
         '১. Nux Vomica 200C — রাতে শোওয়ার আগে ৪ ফোঁটা করে ৩ দিন।\n২. এর পর Ratanhia Q — সিটজ বাথে ব্যবহারের জন্য।\nপথ্য: প্রতিদিন অন্তত ৩ লিটার পানি, মৌসুমি শাকসবজি, ভাজাপোড়া ও গরুর মাংস সম্পূর্ণ নিষিদ্ধ।',
       followUpDate: '2026-10-21',
       updatedAt: '2026-10-07T18:15:00.000Z',
-      prescribedBy: 'ডাঃ শান্তি হোমিও কেয়ার বিশেষজ্ঞ প্যানেল',
+      prescribedBy: 'ডাঃ মোঃ ওয়ালিউল বারী (Controller in-charge of Exams, ASA University Bangladesh)',
     },
   },
   {

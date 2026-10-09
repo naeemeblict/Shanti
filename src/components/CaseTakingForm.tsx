@@ -33,10 +33,12 @@ import {
 import { CaseTakingFormData, CaseTakingFormSchema } from '../lib/validations/case-form-schema';
 import { PatientCase } from '../types/case';
 import { CaseStorage } from '../services/storage';
+import { downloadPrintableFile } from '../utils/print-export';
 
 interface CaseTakingFormProps {
   onCaseSubmitted: (newCase: PatientCase) => void;
   onOpenEmergencyModal: (reason?: string) => void;
+  onOpenPrintView?: (caseItem: PatientCase) => void;
 }
 
 const INITIAL_FORM_DATA: CaseTakingFormData = {
@@ -75,6 +77,7 @@ const INITIAL_FORM_DATA: CaseTakingFormData = {
 export const CaseTakingForm: React.FC<CaseTakingFormProps> = ({
   onCaseSubmitted,
   onOpenEmergencyModal,
+  onOpenPrintView,
 }) => {
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [formData, setFormData] = useState<CaseTakingFormData>(INITIAL_FORM_DATA);
@@ -304,10 +307,17 @@ export const CaseTakingForm: React.FC<CaseTakingFormProps> = ({
             </a>
 
             <button
-              onClick={() => window.print()}
+              onClick={() => {
+                if (onOpenPrintView && submittedCase) {
+                  onOpenPrintView(submittedCase);
+                } else if (submittedCase) {
+                  downloadPrintableFile(submittedCase);
+                }
+              }}
               className="flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-3.5 px-5 rounded-xl text-sm transition-colors cursor-pointer"
+              title="অফিসিয়াল প্রেসক্রিপশন পেপারে প্রিন্ট বা ফাইল ডাউনলোড করুন"
             >
-              <Printer className="w-4 h-4" />
+              <Printer className="w-4 h-4 text-teal-700" />
               <span>কপি প্রিন্ট / সেভ করুন</span>
             </button>
           </div>

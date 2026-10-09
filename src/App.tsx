@@ -77,6 +77,7 @@ export default function App() {
           <CaseTakingForm
             onCaseSubmitted={handleCaseSubmitted}
             onOpenEmergencyModal={handleOpenEmergency}
+            onOpenPrintView={(c) => setSelectedCaseForPrint(c)}
           />
         )}
 
@@ -84,6 +85,7 @@ export default function App() {
           <CaseStatusLookup
             onSelectCaseToView={(c) => setSelectedCaseForDetail(c)}
             onNavigateToForm={() => setCurrentTab('form')}
+            onOpenPrintView={(c) => setSelectedCaseForPrint(c)}
           />
         )}
 

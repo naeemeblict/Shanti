@@ -20,6 +20,7 @@ import {
 import { PatientCase, AICaseAnalysis, ClinicalNotes, CaseStatus } from '../types/case';
 import { URINARY_BOWEL_SYMPTOMS, MODALITY_CARDS, CLINIC_CONFIG } from '../constants/case-form-data';
 import { CaseStorage } from '../services/storage';
+import { downloadPrintableFile } from '../utils/print-export';
 
 interface CaseDetailModalProps {
   caseData: PatientCase;
@@ -159,7 +160,7 @@ export const CaseDetailModal: React.FC<CaseDetailModalProps> = ({
       prescriptionPlan: prescriptionPlan,
       followUpDate: followUpDate || undefined,
       updatedAt: new Date().toISOString(),
-      prescribedBy: 'ডাঃ শান্তি হোমিও কেয়ার',
+      prescribedBy: `${CLINIC_CONFIG.doctorNameBangla} (${CLINIC_CONFIG.doctorDesignationBangla})`,
     };
 
     const updated = CaseStorage.saveClinicalNotes(caseData.id, newNotes, currentStatus, 'reviewed');
@@ -784,11 +785,18 @@ export const CaseDetailModal: React.FC<CaseDetailModalProps> = ({
 
           <div className="flex items-center gap-2">
             <button
+              onClick={() => downloadPrintableFile(caseData)}
+              className="hidden sm:inline-flex items-center gap-1.5 bg-teal-50 hover:bg-teal-100 text-teal-850 border border-teal-300/80 font-bold px-3.5 py-2 rounded-xl text-xs sm:text-sm transition-colors cursor-pointer"
+              title="অফলাইন প্রিন্টযোগ্য HTML ফাইল ডাউনলোড করুন"
+            >
+              <span>📥 ফাইল ডাউনলোড</span>
+            </button>
+            <button
               onClick={() => onOpenPrintView(caseData)}
-              className="flex items-center gap-1.5 bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold px-4 py-2 rounded-xl text-xs sm:text-sm transition-colors cursor-pointer"
+              className="flex items-center gap-1.5 bg-teal-800 hover:bg-teal-900 text-white font-bold px-4 py-2 rounded-xl text-xs sm:text-sm transition-colors cursor-pointer"
             >
               <Printer className="w-4 h-4" />
-              <span>প্রিন্ট / PDF</span>
+              <span>প্রিন্ট ভিউ / PDF</span>
             </button>
             <button
               onClick={onClose}

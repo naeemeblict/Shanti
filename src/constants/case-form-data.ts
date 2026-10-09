@@ -1,6 +1,11 @@
 export const CLINIC_CONFIG = {
   nameBangla: 'শান্তি হোমিও কেয়ার',
   nameEnglish: 'Shanti Homeo Care',
+  doctorNameBangla: 'ডাঃ মোঃ ওয়ালিউল বারী',
+  doctorNameEnglish: 'Dr. Md. Waliul Bari',
+  doctorDesignationBangla: 'পরীক্ষা নিয়ন্ত্রক (ভারপ্রাপ্ত), আশা ইউনিভার্সিটি বাংলাদেশ',
+  doctorDesignationEnglish: 'Controller in-charge of Exams, ASA University Bangladesh',
+  doctorRole: 'প্রধান হোমিওপ্যাথিক কনসালট্যান্ট',
   address: 'ডি৬, বসতী প্রভাতী, ১২ রিং রোড, শ্যামলী, ঢাকা - ১২০৭।',
   phone: '০১৫৫২৪০৬৭০৭',
   phoneRaw: '+8801552406707',

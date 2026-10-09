@@ -149,16 +149,16 @@ export const DoctorDashboard: React.FC<DoctorDashboardProps> = ({
       {/* Top Banner & Actions */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
         <div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <h2 className="text-xl sm:text-2xl font-black text-slate-900">
               চিকিৎসক ক্লিনিক্যাল পোর্টাল
             </h2>
             <span className="text-xs font-bold bg-teal-100 text-teal-900 px-2.5 py-0.5 rounded-full border border-teal-200">
-              সুরক্ষিত
+              {CLINIC_CONFIG.doctorNameBangla} ({CLINIC_CONFIG.doctorNameEnglish})
             </span>
           </div>
-          <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-            রোগীদের জমাকৃত ডিজিটাল কেস টেকিং, লক্ষণ বিশ্লেষণ, এআই খসড়া ও ব্যবস্থাপত্র প্রদান
+          <p className="text-xs sm:text-sm text-slate-600 mt-0.5 font-medium">
+            {CLINIC_CONFIG.doctorDesignationBangla} • {CLINIC_CONFIG.doctorDesignationEnglish}
           </p>
         </div>
 
